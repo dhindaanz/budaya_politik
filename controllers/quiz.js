@@ -7,7 +7,7 @@ exports.create = async (req, res) => {
         const data 
         = await Quiz.create(req.body)
         res.json({
-            message: "quiz created successfully.",
+            message: "Quiz Created Successfully.",
             data: data,
         })
     } catch (error) {
@@ -22,7 +22,7 @@ exports.getAll = async(req, res) => {
     try {
         const quizzes= await Quiz.findAll()
         res.json({
-            message: "Quizzes retrieved successfully.",
+            message: "Quizzes Retrieved Successfully.",
             data: quizzes,
         });
     } catch (error) {
@@ -42,7 +42,7 @@ exports.update = async (req, res) => {
         where: { id }
       });
       res.json({
-        message: 'Data berubah, kaya power ranger',
+        message: 'Quiz Updated Successfully.',
         data: quiz
       });
     } catch(error) {
@@ -61,11 +61,11 @@ exports.delete = async(req, res) => {
         quiz.destroy()
 
         res.json({
-            message: "Quiz deleted successfully."
+            message: "Quiz Deleted Successfully."
         });
     } catch (error) {
         res.status(500),json({
-            message: error.massage || "Some error occurred while retrieving quiz",
+            message: error.massage || "Some Error Occurred While Retrieving Quiz",
             data:null,
         });
     }
@@ -76,12 +76,12 @@ exports.findOne = async(req, res) => {
     try {
         const quiz= await Quiz.findByPk(id, { rejectOnEmpty: true })
         res.json({
-            message: `Quizzes retrieved successfully with id=${id}.`,
+            message: `Quizzes Retrieved Successfully With id=${id}.`,
             data: quiz,
         });
     } catch (error) {
         res.status(500),json({
-            message: error.massage || "Some error occurred while retrieving quiz",
+            message: error.massage || "Some Error Occurred While Retrieving Quiz",
             data:null,
         });
     }
@@ -95,7 +95,7 @@ exports.getByCategoryId = async (req, res) => {
         }
     })
     res.json({
-        message: `Quizzes retrieved successfully with categoryId=${id}.`,
+        message: `Quizzes Retrieved Successfully With CategoryId=${id}.`,
         data: quizzes,
     });
 }
@@ -108,7 +108,7 @@ exports.getByLevelId = async (req, res) => {
         }
     })
     res.json({
-        message: `Quizzes retrieved successfully with levelId=${id}.`,
+        message: `Quizzes Retrieved Successfully With LevelId=${id}.`,
         data: quizzes,
     });
 }

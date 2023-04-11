@@ -6,7 +6,7 @@ exports.create = async (req, res) => {
         const data 
         = await Materi.create(req.body)
         res.json({
-            message: "materi created successfully.",
+            message: "Materi Created Successfully.",
             data,
         })
     } catch (error) {
@@ -21,7 +21,7 @@ exports.getAll = async(req, res) => {
     try {
         const materi= await Materi.findAll()
         res.json({
-            message: "Materi retrieved successfully.",
+            message: "Materi Retrieved Successfully.",
             data: materi,
         });
     } catch (error) {
@@ -41,12 +41,12 @@ exports.update = async (req, res) => {
         where: { id }
       });
       res.json({
-        message: 'Materi updated successfully.',
+        message: 'Materi Updated Successfully.',
         data: materi
       });
     } catch(error) {
       res.status(500).json({
-        message: error.message || 'Some error occurred while retrieving quiz',
+        message: error.message || 'Some Error Occurred While Retrieving Materi',
         data: null
       });
     }
@@ -60,11 +60,11 @@ exports.delete = async(req, res) => {
         materi.destroy()
 
         res.json({
-            message: "Materi deleted successfully."
+            message: "Materi Deleted Successfully."
         });
     } catch (error) {
         res.status(500),json({
-            message: error.massage || "Some error occurred while retrieving quiz",
+            message: error.massage || "Some Error Occurred While Retrieving Materi",
             data:null,
         });
     }
@@ -75,12 +75,12 @@ exports.findOne = async(req, res) => {
     try {
         const materi= await Materi.findByPk(id, { rejectOnEmpty: true })
         res.json({
-            message: `Materi retrieved successfully with id=${id}.`,
+            message: `Materi Retrieved Successfully With id=${id}.`,
             data: materi,
         });
     } catch (error) {
         res.status(500),json({
-            message: error.massage || "Some error occurred while retrieving quiz",
+            message: error.massage || "Some Error Occurred While Retrieving Materi",
             data:null,
         });
     }
@@ -94,7 +94,7 @@ exports.getByCategoryId = async (req, res) => {
         }
     })
     res.json({
-        message: `Materi retrieved successfully with categoryId=${id}.`,
+        message: `Materi Retrieved Successfully With categoryId=${id}.`,
         data: materi,
     });
 }
